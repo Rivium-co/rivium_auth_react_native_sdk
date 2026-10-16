@@ -1,0 +1,77 @@
+{
+  "name": "@rivium/auth-react-native",
+  "version": "0.1.0",
+  "description": "Rivium Auth SDK for React Native - hosted sign-in for your users",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "files": [
+    "src",
+    "lib",
+    "!lib/**/__tests__"
+  ],
+  "scripts": {
+    "prebuild": "node scripts/gen-version.mjs",
+    "build": "bob build",
+    "pretypecheck": "node scripts/gen-version.mjs",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf lib",
+    "pretest": "node scripts/gen-version.mjs",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "react-native",
+    "auth",
+    "authentication",
+    "sign-in",
+    "rivium",
+    "rivium-auth"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rivium-co/rivium_auth_react_native_sdk.git"
+  },
+  "author": "Rivium <support@rivium.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rivium-co/rivium_auth_react_native_sdk/issues"
+  },
+  "homepage": "https://rivium.co/cloud/rivium-auth",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "expo-secure-store": "*",
+    "react-native-keychain": "*"
+  },
+  "peerDependenciesMeta": {
+    "expo-secure-store": {
+      "optional": true
+    },
+    "react-native-keychain": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "react-native-builder-bob": "^0.23.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.6.1"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}
